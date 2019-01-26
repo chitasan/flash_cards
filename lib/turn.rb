@@ -11,7 +11,7 @@ class Turn
   end
 
   def correct? # refactor without else?
-    if @string == @card.answer
+    if @string.capitalize == @card.answer
       true
     else
       false
