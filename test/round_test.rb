@@ -23,7 +23,7 @@ class Roundtest < Minitest::Test
     assert_equal @deck, @round.deck
     assert_equal [], @round.turns
     assert_equal @card_1, @round.current_card
-  end
+  end 
 
   def test_if_card_turns_after_a_guess
     new_turn = @round.take_turn("Juneau")
@@ -55,7 +55,7 @@ class Roundtest < Minitest::Test
 
   def test_it_can_count_turns
     new_turn = @round.take_turn("Juneau")
-    new_turn = @round.take_turn("Venus")    
+    new_turn = @round.take_turn("Venus")
 
     assert_equal 2, @round.turns.length
   end
