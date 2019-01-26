@@ -10,6 +10,12 @@ class Round
      @current_card = deck.cards[0]
    end
 
+   def start
+     p "Welcome to Sports Trivia!"
+     p "You're playing with 8 cards."
+     p "-" * 30
+   end
+
    def take_turn(guess)
      new_turn = Turn.new(guess, current_card)
      @turns << new_turn
