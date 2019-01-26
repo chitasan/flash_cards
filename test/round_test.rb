@@ -55,7 +55,7 @@ class Roundtest < Minitest::Test
 
   def test_it_can_count_turns
     new_turn = @round.take_turn("Juneau")
-    new_turn = @round.take_turn("Venus")   
+    new_turn = @round.take_turn("Venus")    
 
     assert_equal 2, @round.turns.length
   end
