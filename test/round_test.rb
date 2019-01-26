@@ -45,7 +45,7 @@ class Roundtest < Minitest::Test
     assert_equal 2, @round.number_correct
   end
 
-  def test_it_has_if_previous_guess_us_correct_with_feedback
+  def test_it_has_if_previous_guess_is_correct_with_feedback
     new_turn = @round.take_turn("Juneau")
     new_turn = @round.take_turn("Venus")
 
