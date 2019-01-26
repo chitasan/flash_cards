@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/card'
 require './lib/deck'
 
-class DeskTest < Minitest::Test
+class DeckTest < Minitest::Test
 
   def setup
     @card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
