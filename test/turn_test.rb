@@ -1,47 +1,42 @@
 
-require 'minitest/autorun' #start from directory you're running it from
+require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/turn' #start from this file loc
+require './lib/turn'
 require './lib/card'
 
 
 class TurnTest < Minitest::Test
 
-  def test_it_exists
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    assert_instance_of Turn, turn
+  def setup
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @turn = Turn.new("Juneau", @card)
   end
 
-  def test_it_returns_guess
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+  def test_it_exists
+    assert_instance_of Turn, @turn
+  end
+
+  def test_it_has_attributes
+    expected = @card
+    actual = @turn.card
+
+    assert_equal expected, actual
 
     expected = "Juneau"
-    actual = turn.guess
+    actual = @turn.guess
 
-    assert_equal "Juneau", turn.guess
+    assert_equal expected, actual
   end
 
   def test_it_is_a_correct_guess
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    expected = true
-    actual = turn.correct?
-
-    assert_equal true, turn.correct?
+    assert true, @turn.correct?
   end
 
   def test_it_gives_feedback_for_correct_guess
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
     expected = "Correct!"
-    actual = turn.feedback
+    actual = @turn.feedback
 
-    assert_equal "Correct!", turn.feedback
+    assert_equal expected, actual
   end
 
  def test_it_is_an_incorrect_guess
@@ -51,7 +46,7 @@ class TurnTest < Minitest::Test
    expected = false
    actual = turn.correct?
 
-   assert_equal false, turn.correct?
+   refute false, turn.correct?
  end
 
  def test_it_gives_feedback_for_incorrect_guess
