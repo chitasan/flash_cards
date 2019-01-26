@@ -26,30 +26,69 @@ class Roundtest < Minitest::Test
   end
 
   def test_if_card_turns_after_a_guess
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal [new_turn], @round.turns
   end
 
   def test_the_current_card_after_turn
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal @card_2, @round.current_card
   end
 
-  def test_it_number_of_guesses_correct
+  def test_number_of_guesses_correct
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+    new_turn = @round.take_turn("North north west")
+
+    assert_equal 2, @round.number_correct
   end
 
-  def test_it_has_feedback_for_last_turn_guess
+  def test_it_has_if_previous_guess_us_correct_with_feedback
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+
+    refute false, @round.turns.last.correct?
+    assert_equal "Incorrect.", @round.turns.last.feedback
   end
 
   def test_it_can_count_turns
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+
+    assert_equal 2, @round.turns.length
   end
 
   def test_number_of_guesses_correct_by_category
-    # Geography
-    # Stem
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:STEM)
   end
 
   def test_percent_of_guesses_correct
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+
+    assert_equal 50.0, @round.percent_correct
+  end
+
+  def test_number_of_turn_by_category
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_of_turn_by_category(:Geography)
+    assert_equal 1, @round.number_of_turn_by_category(:STEM)
+    assert_equal 0, @round.number_of_turn_by_category(:Reading)
   end
 
   def test_percent_of_guesses_correct_by_category
-    # Geography
+    new_turn = @round.take_turn("Juneau")
+    new_turn = @round.take_turn("Venus")
+
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
 
 end
