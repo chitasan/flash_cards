@@ -10,8 +10,8 @@ class Turn
     @string
   end
 
-  def correct? # refactor without else?
-    if @string.capitalize == @card.answer
+  def correct?
+    if @string.downcase == @card.downcase
       true
     else
       false
