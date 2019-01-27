@@ -11,7 +11,7 @@ class Turn
   end
 
   def correct?
-    if @string.downcase == @card.downcase
+    if @string.downcase == @card.answer.downcase
       true
     else
       false
