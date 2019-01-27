@@ -12,7 +12,7 @@ class Round
 
    def start
      p "Welcome to Sports Trivia!"
-     p "You're playing with 8 cards."
+     p "You're playing with #{@deck.count} cards."
      p "-" * 30
    end
 
