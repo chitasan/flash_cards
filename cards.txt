@@ -1,0 +1,9 @@
+What team won the 2018 Super Bowl?,Philadelphia Eagles,NFL
+What team won the 2018 World Series,Boston Red Sox,MLB
+What team won the 2018 NBA Championship?,Golden State Warriors,NBA
+What team won the 2018 Stanley Cup,Washington Capitals,NHL
+What team is the AFC Champion in 2019?,New England Patriots,NFL
+What team is the NFC Champion in 2019?,Los Angeles Rams,NFL
+How many innings are in a baseball game?,9,MLB
+Who owns the Dallas Mavericks?,Mark Cuban,NBA
+Who is the all-time NHL leader in points?,Wayne Gretzky,NHL
