@@ -10,8 +10,8 @@ class Turn
     @string
   end
 
-  def correct? # refactor without else?
-    if @string == @card.answer
+  def correct?
+    if @string.downcase == @card.downcase
       true
     else
       false
@@ -25,4 +25,5 @@ class Turn
       "Incorrect."
     end
   end
+
 end
