@@ -33,18 +33,12 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_gives_feedback_for_correct_guess
-    expected = "Correct!"
-    actual = @turn.feedback
-
-    assert_equal expected, actual
+    assert_equal "Correct!", @turn.feedback
   end
 
  def test_it_is_an_incorrect_guess
    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
    turn = Turn.new("Anchorage", card)
-
-   expected = false
-   actual = turn.correct?
 
    refute false, turn.correct?
  end
@@ -52,9 +46,6 @@ class TurnTest < Minitest::Test
  def test_it_gives_feedback_for_incorrect_guess
    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
    turn = Turn.new("Anchorage", card)
-
-   expected = "Incorrect."
-   actual = turn.feedback
 
    assert_equal "Incorrect.", turn.feedback
  end
