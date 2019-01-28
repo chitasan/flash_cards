@@ -4,7 +4,6 @@ require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
 
-
 class TurnTest < Minitest::Test
 
   def setup
@@ -33,10 +32,7 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_gives_feedback_for_correct_guess
-    expected = "Correct!"
-    actual = @turn.feedback
-
-    assert_equal expected, actual
+    assert_equal "Correct!", @turn.feedback
   end
 
  def test_it_is_an_incorrect_guess
