@@ -18,10 +18,7 @@ class DeckTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    expected = @cards
-    actual = @deck.cards
-
-    assert_equal expected, actual
+    assert_equal @cards, @deck.cards
   end
 
   def test_it_can_count_cards
@@ -29,20 +26,9 @@ class DeckTest < Minitest::Test
   end
 
   def test_it_can_count_cards_in_each_category
-    expected = [@card_2, @card_3]
-    actual = @deck.cards_in_category(:STEM)
-
-    assert_equal expected, actual
-
-    expected = [@card_1]
-    actual = @deck.cards_in_category(:Geography)
-
-    assert_equal expected, actual
-
-    expected = []
-    actual = @deck.cards_in_category("Pop Culture")
-
-    assert_equal expected, actual
-    end
+    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+    assert_equal [@card_1], @deck.cards_in_category(:Geography)
+    assert_equal [], @deck.cards_in_category("Pop Culture")
+  end
 
 end
