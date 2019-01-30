@@ -1,19 +1,15 @@
+require './lib/card'
 require './lib/turn'
 
 class Round
-
-  attr_reader :deck, :turns, :current_card
+  attr_reader :deck, 
+              :turns, 
+              :current_card
 
   def initialize(deck)
      @deck = deck
      @turns = []
      @current_card = deck.cards[0]
-   end
-
-   def start
-     p "Welcome to Sports Trivia!"
-     p "You're playing with #{@deck.count} cards."
-     p "-" * 30
    end
 
    def take_turn(guess)
@@ -36,10 +32,8 @@ class Round
    def number_correct_by_category(category)
      correct = 0
      @turns.each do |turn|
-       if turn.card.category == category
-         if turn.correct?
+       if turn.card.category == category and turn.correct?
             correct += 1
-         end
        end
      end
       correct
@@ -63,4 +57,9 @@ class Round
      100 * (number_correct_by_category(category).to_f / number_of_turn_by_category(category).to_f)
    end
 
- end
+   def start
+    p "Welcome to Sports Trivia!"
+    p "You're playing with #{@deck.count} cards."
+    p "-" * 30
+   end
+end
