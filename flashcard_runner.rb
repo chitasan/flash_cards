@@ -14,20 +14,19 @@ card_7 = Card.new("Who owns the Dallas Mavericks?", "Mark Cuban", :NBA)
 card_8 = Card.new("Who is the all-time NHL leader in points?", "Wayne Gretzky", :NHL)
 
 cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8]
-
 deck = Deck.new(cards)
 round = Round.new(deck)
 
 round.start
 
 until round.turns.length == round.deck.count do
-  p "This is question #{round.turns.length + 1} of #{round.deck.count}."
-  p round.current_card.question
-  p "Take a guess:"
-  guess = gets.chomp
-  round.take_turn(guess)
-  p round.turns.last.feedback
-  p "-" * 30
+    p "This is question #{round.turns.length + 1} of #{round.deck.count}."
+    p round.current_card.question
+    p "Take a guess:"
+    guess = gets.chomp
+    round.take_turn(guess)
+    p round.turns.last.feedback
+    p "-" * 30
 end
 
 p "*** Game Over! ***"
